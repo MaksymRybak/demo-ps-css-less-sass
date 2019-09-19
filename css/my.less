@@ -54,36 +54,36 @@ nav {
   font-size: 14px;
   font-weight: bold;
   float: right;
-}
 
-nav ul {
-  list-style-type: none;
-}
+  ul {
+    list-style-type: none;
 
-nav ul li {
-  float: left;
-  margin: 2px;
-}
+    li {
+      float: left;
+      margin: 2px;
 
-nav ul li a {
-  text-decoration: none;
-}
+      a {
+        text-decoration: none;
 
-nav ul li a:hover {
-  text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 footer {
   font-size: 9px;
   text-align: center;
   color: Blue;
-}
 
-footer nav {
-  float: none;
-  display: inline-block;
-  font-size: 9px;
-  vertical-align: middle;
+  nav {
+    float: none;
+    display: inline-block;
+    font-size: 9px;
+    vertical-align: middle;
+  }
 }
 
 /* Forms */
@@ -95,7 +95,6 @@ footer nav {
   border: @main-color 1px solid;
   .rounded-corners;
   padding: 5px;
-
 }
 
 #contact-form input[type=textbox],
