@@ -59,39 +59,44 @@ header h1 {
 }
 
 nav {
-  font-size: $base-font-size;
-  font-weight: bold;
+  font: {
+    // sotto proprieta'
+    size: $base-font-size;
+    weight: bold;
+  }
+
   float: right;
-}
 
-nav ul {
-  list-style-type: none;
-}
+  ul {
+    list-style-type: none;
 
-nav ul li {
-  float: left;
-  margin: 2px;
-}
+    li {
+      float: left;
+      margin: 2px;
 
-nav ul li a {
-  text-decoration: none;
-}
+      a {
+        text-decoration: none;
 
-nav ul li a:hover {
-  text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 footer {
   font-size: 9px;
   text-align: center;
   color: Blue;
-}
 
-footer nav {
-  float: none;
-  display: inline-block;
-  font-size: 9px;
-  vertical-align: middle;
+  nav {
+    // cascading
+    float: none;
+    display: inline-block;
+    font-size: 9px;
+    vertical-align: middle;
+  }
 }
 
 /* Forms */
