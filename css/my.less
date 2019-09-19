@@ -1,7 +1,9 @@
 @import "init";
 
-@main-color: Black;
+@main-color: #008000;
 @base-font-size: 14;
+
+@base-size: 14px;
 
 /* Basics */
 html {
@@ -15,15 +17,17 @@ body {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: @base-size + 10px;
+  ;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: @base-size + 4px;
+  ;
 }
 
 h3 {
-  font-size: 16px;
+  font-size: @base-size + 2px;
 }
 
 /* Layout */
@@ -37,7 +41,7 @@ h3 {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  color: @main-color;
+  color: lighten(@main-color, 10%);
 }
 
 /* Sections */
