@@ -14,6 +14,11 @@ $base-class-name: "col";
   font-size: $base-font-size;
 }
 
+$app-size: 1024px;
+
+@function center-width($gutter) {
+  @return$app-size - (2*$gutter);
+}
 
 /* Basics */
 html {
@@ -38,10 +43,16 @@ h3 {
   font-size: $base-font-size + 2;
 }
 
+@for $col-number from 2 through 5 {
+  .col-#{$col-number} {
+    width: round($number: $app-size / $col-number - 10px);
+  }
+}
+
 /* Layout */
 #container {
   margin-top: 5px;
-  width: 800px;
+  width: center-width(100px);
   margin-left: auto;
   margin-right: auto;
   background: #FFF;
