@@ -1,25 +1,40 @@
 @import "css-sass/init.scss";
 
+$main-color: Black;
+$base-font-size: 14px;
+$root-path: "http://127.0.0.1:5500";
+$base-class-name: "col";
+
+.#{$base-class-name}1 {
+  font-size: $base-font-size;
+}
+
+.#{$base-class-name}2 {
+  font-size: $base-font-size;
+}
+
+
 /* Basics */
 html {
   font-family: 'Open Sans', verdana, helvetica, sans-serif;
-  font-size: 14px;
+  font-size: $base-font-size;
 }
 
 body {
-  background: #000;
+  background: lighten($main-color, 30%);
+  background-image: url("#{$root-path}/images/back.jpg");
 }
 
 h1 {
-  font-size: 24px;
+  font-size: $base-font-size + 10;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: $base-font-size + 4;
 }
 
 h3 {
-  font-size: 16px;
+  font-size: $base-font-size + 2;
 }
 
 /* Layout */
@@ -33,7 +48,7 @@ h3 {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  color: #000;
+  color: $main-color;
 }
 
 /* Sections */
@@ -44,7 +59,7 @@ header h1 {
 }
 
 nav {
-  font-size: 14px;
+  font-size: $base-font-size;
   font-weight: bold;
   float: right;
 }
@@ -100,7 +115,7 @@ footer nav {
   background: #ffffe0;
   width: 250px;
   display: block;
-  border: 1px #000 solid;
+  border: 1px $main-color solid;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;

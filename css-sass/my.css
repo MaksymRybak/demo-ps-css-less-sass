@@ -75,13 +75,20 @@ video {
   vertical-align: baseline;
   background: transparent; }
 
+.col1 {
+  font-size: 14px; }
+
+.col2 {
+  font-size: 14px; }
+
 /* Basics */
 html {
   font-family: 'Open Sans', verdana, helvetica, sans-serif;
   font-size: 14px; }
 
 body {
-  background: #000; }
+  background: #4d4d4d;
+  background-image: url("http://127.0.0.1:5500/images/back.jpg"); }
 
 h1 {
   font-size: 24px; }
@@ -103,7 +110,7 @@ h3 {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  color: #000; }
+  color: Black; }
 
 /* Sections */
 header h1 {
@@ -159,7 +166,7 @@ footer nav {
   background: #ffffe0;
   width: 250px;
   display: block;
-  border: 1px #000 solid;
+  border: 1px Black solid;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
