@@ -140,6 +140,10 @@ footer nav {
   font-size: 9px;
   vertical-align: middle;
 }
+#contact-module .fonts {
+  font-family: "Open Sans", Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+}
 /* Forms */
 #contact-form {
   background: #f8f8f8;
@@ -155,7 +159,7 @@ footer nav {
 #contact-form input[type=textbox],
 #contact-form textarea {
   font-family: "Open Sans", Verdana, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   background: #ffffe0;
   width: 250px;
   display: block;

@@ -86,6 +86,22 @@ footer {
   }
 }
 
+//
+@app-root: "http://localhost:8000";
+
+// definizione namespace 
+#contact-module {
+  @base-size: 24px; // variabile scoped
+
+  .fonts {
+    font-family: "Open Sans",
+      Verdana,
+      Helvetica,
+      sans-serif;
+    font-size: @base-size; // uso della variabile scoped
+  }
+}
+
 /* Forms */
 #contact-form {
   background: #f8f8f8;
@@ -95,29 +111,28 @@ footer {
   border: @main-color 1px solid;
   .rounded-corners;
   padding: 5px;
-}
 
-#contact-form input[type=textbox],
-#contact-form textarea {
-  font-family: "Open Sans", Verdana, Helvetica, sans-serif;
-  font-size: 18px;
-  background: #ffffe0;
-  width: 250px;
-  display: block;
-  border: 1px @main-color solid;
-  .rounded-corners(10px);
-  padding: 2px;
-}
+  input[type=textbox],
+  textarea {
+    #contact-module>.fonts(); // uso namespace
+    background: #ffffe0;
+    width: 250px;
+    display: block;
+    border: 1px @main-color solid;
+    .rounded-corners(10px);
+    padding: 2px;
+  }
 
-#contact-form textarea {
-  height: 150px;
-  font-family: "Open Sans", Verdana, Helvetica, sans-serif;
-}
+  textarea {
+    height: 150px;
+    font-family: "Open Sans", Verdana, Helvetica, sans-serif;
+  }
 
-#contact-form label {
-  width: 150px;
-}
+  label {
+    width: 150px;
+  }
 
-#contact-form .validation {
-  display: none;
+  .validation {
+    display: none;
+  }
 }
