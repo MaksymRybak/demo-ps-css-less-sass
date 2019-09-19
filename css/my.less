@@ -1,5 +1,7 @@
 @import "init.css";
 
+@main-color: Black;
+
 /* Basics */
 html {
   font-family: 'Open Sans', verdana, helvetica, sans-serif;
@@ -7,7 +9,7 @@ html {
 }
 
 body {
-  background: #000;
+  background: @main-color;
 }
 
 h1 {
@@ -33,7 +35,7 @@ h3 {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  color: #000;
+  color: @main-color;
 }
 
 /* Sections */
@@ -85,7 +87,7 @@ footer nav {
   width: 400px;
   margin-left: auto;
   margin-right: auto;
-  border: black 1px solid;
+  border: @main-color 1px solid;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -100,7 +102,7 @@ footer nav {
   background: #ffffe0;
   width: 250px;
   display: block;
-  border: 1px #000 solid;
+  border: 1px @main-color solid;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
