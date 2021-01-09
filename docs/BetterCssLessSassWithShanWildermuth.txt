@@ -1,0 +1,145 @@
+link al corso https://app.pluralsight.com/library/courses/better-css/
+
+CSS e' doloroso:
+	CCS problems:
+		- dupplicazione dei colori
+		- problemi stili dupplicati
+		- cascading hell (gerarichia di stili non facilmente determinabile)
+		- mancanza del calcolo
+		- problemi con import
+	CSS non ci consente di creare i stili riutilizzabili in modo piu' diretto -> facile a fare gli errori
+	NOTA: e' meglio avere 6-8 colori nella nostra app, e' essere in grado di cambiarli modificando soltando le variabili, evitando le ricerce e sostituzioni massive
+	Possiamo centralizzare la definizione di colori, stile dei fordi, font etc..
+	Quando definiamo i stili usando ID di elementi HTML, nel momento di refactoring (es. cambiamo ID), dobbiamo cambiare ID anche in CSS in N posti diversi.
+		-> questo problema e' relativo al cascading di stili css/
+	E' utile usare anche le operazioni matematiche (es. + - * /) -> in modo per poter calcolare altri valori per esempio in base al font-size
+	NOTA: anche usando @import all'interno di CSS, il browser eseguita' una richiesta separata per il file importato
+	soluzione: usare LESS o SASS (stili CSS dinamici)
+LESS
+	Dynamic Style Sheet Language
+	viene compilato in CSS
+	sono stati introdotti le funzionalita' orientati alla programmazione
+	utilizzo di LESS lato client
+		scarichiamo la libreria less, la referenziamo sulla pagina insieme al file di tipo "stylesheet/less" -> quanto viene eseguito il js di less client side, come output avremo 
+		il file css interpretabile dal browser
+	utilizzo di LESS lato server (DA PREFERIRE!!!)
+		abbiamo supporto x JSP, ASP.NET e Nodejs (vedi documentazione relativa)
+		usando nodejs:
+			node node_modules\less\bin\lessc css\my.less css\my.css
+			possiamo usare il plugin di less x minificare il css (es. npm i --save-dev less-plugin-clean-css)
+	@import di un file *.less da un'altro *.less, dopo la compilazione, abbiamo unico file *.css! (NOTA: non viene fatta una ulteriore richiesta al web server!!!)
+	variabili LESS
+	operazioni LESS
+		es. @font-size: 4px + 4;
+		idem con le variabili
+	funzioni LESS
+		color base: lighten(@color, 15%), darken(...), saturate(), fadein(), hue(), saturation(), alpha(), round(), ceil(), floor() etc... VEDI DOCUMENTAZIONE.
+		NOTA: dobbiamo usare sintassi numeri x passare il colore!
+	mixins
+		sono simili alle funzioni
+		possiamo inserire piu' coppie NOME - VALORE
+		possano accettare i parametri, default e overload
+		mixins guards - impostiamo mixins specificando il range di valori accettabili per i parametri dichiarati
+		mixins type guards - impostiamo le regole sui tipi di parametri passati ai mixins (in base al tipo viene eseguita la mixin giusta)
+	nested rules (regole innestate)
+		vedi esempio
+		usiamo & x definire regole es. a:hover (in less scriviamo &:hover)
+	namespacing x creare una organizzazione in gruppi
+		riutilizzo classi gia' definite in classi nuovi 
+		vedi esempio nel repo, #my-form > .set-button x usare lo stile definito prima
+	scoping
+		x limitare utilizzo di variabili e mixins ad uno scope specifico
+		e' sufficiente definirli all'interno di un namespace (es. #my-form)
+	string interpolation
+		@{varName} usata all'interno di una stringa
+	uso di javascript
+		si usano back quotes, tutto quello che al loro interno viene eseguito dal motore di JS
+		-> es. .my-img: `"$(baseRoot)".toUpperCase()/my-img.jpg`
+	recap: refactoring e manutenzione piu' facilitata, usiamo metodi di programmazione comune
+		miglioramento di riutilizzo e leggibilita'
+		aiuta a strutturare e rendere il design piu' modulare
+SASS
+	simile a LESS ma a livello sintattico e' molto piu' valido
+	viene compilato in CSS
+	gestisce 2 sintassi
+		SASS - basato su indentazione
+		SCSS - somiglia di piu' al CSS
+	supportato da ASP.NET, JSP, NodeJS e altri
+		in nodejs si usa npm i --save-dev node-sass, si compila con node node-sass source.scss target.css		
+	variabili
+		$myColor: Red (o 4px/1.0em, etc...)
+	operazioni
+		font-size: 4px + 4;
+		- * / etc..
+	funzioni di colori
+		lighten($color, 10%)
+		darken(), saturate(), desaturate(), fade_in() etc... VEDI DOC..
+	altri funzioni
+		$quoted: quote($sometext);
+		idem x unquaote()
+		$value: if(true, $color1, $color2)
+		round(), ceil(), floor(), etc..
+	string interpolation 
+		"#{$root}" / #{$myClass} - x poter creare una classe partendo dal nome di una variabile
+	regole (rules)
+		cascading
+		selettore padre - & (come in LESS)
+		sotto proprieta', es. font: { size: ...; color: ... } 
+	direttive
+		@import - x importare altri file *.scss (compilazione in un singolo *.css)
+		@extend - estensione di regole (assomiglia all'ereditarieta' in OOP)
+		@mixin - funzioni con/senza parametri, parametri di default, overloading
+			blocchi di stili riutilizzabili
+			@include my-mixin, usato per includere mixin
+			recap: consente iniettare mixins all'interno delle regole css
+		@function - funzioni con calcoli, logica
+			@return, x ritornare il risultato
+			calcolo vari
+		direttive di controllo
+			@if, @else if, @else 
+			@for 
+				@for $col from 1 through 4 {
+					.col#{$col} {
+						width: $page-widh / $col;
+				}
+			}
+			@each and @while
+				@each, iteriamo un set predefinito di valori
+				@while, controlliamo una condizione creando dei stili dinamici
+		NOTA: ricordiamoci che parliamo di CSS, la programmazione aiuta a strutturare meglio 
+			il CSS e renderlo piu' manutenibile, leggibile
+			design piu' modulare
+			
+
+RECAP STILI CORE NOTI:
+-----------------
+position: posizione in base alla finestra del browser o componente padre
+z-index
+background: transparent url('../Cliparts/1px.gif') left top repeat;
+background-color
+top
+left
+width
+height
+overflow: mostrare/nascondere le scrollbar quando contenuto eccede dal proprio contenitore
+border
+border-collapse
+table-layout: auto/fixed, auto, la tabella occpua 100% del container, fixed, dobbiamo specificare la larghezza (NOTA: in questo caso il browser e' in grado di denderizzare le prime righe della tabella
+	subito, impressione che tabella viene caricata subito)
+display
+font-family
+font-size
+margin
+padding
+list-style-type: il tipo di immagine davanti a ciascun elemento della lista
+cursor
+text-decoration: decorazione del testo (sottolineato, barrato, etc.)
+color
+white-space: gestione degli spazi e ritorno a capo 
+float
+line-height
+vertical-align
+box-shadow
+opacity
+text-overflow: in che modo viene troncato il testo che eccede dal suo contenitore
+
